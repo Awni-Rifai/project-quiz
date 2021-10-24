@@ -1,0 +1,24 @@
+/* _____________________________________________breief style__________________________________________________________________ */
+.breif-section{
+  background-image: linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh
+}
+.container-brief{
+ text-align: center;
+  background-color: #ffffff59;
+  border-radius: 15px;
+}
+.container-brief h1{
+  margin-bottom: 25px;;
+}
+.container-brief h4{
+  margin-bottom: 25px;
+  line-height: 1.5em ;
+  font-size: 22px;
+}
+.container-brief h4 strong{
+  color: red;
+}

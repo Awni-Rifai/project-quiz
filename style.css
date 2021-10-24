@@ -1,0 +1,198 @@
+/* body {
+    background-color: #8BC6EC;
+    background-image: linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  } */
+  .signup-section{
+    width: 500px;
+    background-color: rgb(255 255 255 /35%);
+    padding: 20px;
+    border-radius: 6px;
+    
+  }
+  .main-section{
+    background-color: #8BC6EC;
+    background: linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+   
+  }
+
+  /* Login  */
+  .login-section{
+    width: 500px;
+    background-color: rgb(255 255 255 /35%);
+    padding: 20px;
+    border-radius: 6px;
+  }
+
+  /* Cards */
+  
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+/* body{
+  background-color: #8BC6EC;
+  background-image: linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%);
+} */
+.cards-section{
+  background-color: #8BC6EC;
+    background-image: linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%);
+    height: 100vh;
+}
+.welcome-name{
+   font-size: 40px;
+   font-family: 'Lobster', cursive;
+    padding-left: 2rem;
+
+}
+
+.card {
+    border: none;
+    border-radius: 10px
+
+}
+.card:hover{
+  transform: scale(1.05);
+
+}
+
+.c-details span {
+    font-weight: 300;
+    font-size: 13px
+}
+
+.icon {
+    width: 50px;
+    height: 50px;
+    background-color: #eee;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 39px
+}
+
+.badge span {
+    background-color: #fffbec;
+    width: 60px;
+    height: 25px;
+    padding-bottom: 3px;
+    border-radius: 5px;
+    display: flex;
+    color: #fed85d;
+    justify-content: center;
+    align-items: center
+}
+
+.progress {
+    height: 10px;
+    border-radius: 10px
+}
+
+.progress div {
+    background-color: red
+}
+
+.text1 {
+    font-size: 14px;
+    font-weight: 600
+}
+
+.text2 {
+    color: #a5aec0
+}
+/* _____________________________________________breief style__________________________________________________________________ */
+.breif-section{
+  background: linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh
+}
+ .container-brief{
+ text-align: center;
+  background-color: #ffffff59;
+  border-radius: 15px;
+} 
+.container-brief h1{
+  margin-bottom: 25px;;
+}
+.container-brief h4{
+  margin-bottom: 25px;
+  line-height: 1.5em ;
+  font-size: 22px;
+}
+.container-brief h4 strong{
+  color: red;
+}
+/*-----------------------------Questions------------------------------*/
+.questions-section {
+  background-color: rgb(255 255 255 /35%);
+  width: 700px;
+  padding: 20px;
+  border-radius: 6px;
+}
+
+.questions-section .section-title {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.questions-section .question {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.questions-section .answers-section {
+  padding: 10px;
+}
+
+.answers-section .form-check {
+  padding: 20px 30px;
+}
+
+/*------------------------------results-page------------------------*/
+/* body{
+  padding: 1rem;
+  background-color: #92D087;
+} */
+
+.grade {
+  width:40%;
+  height: 50vh;
+  margin: 7rem auto;
+  background-color: #d9e9f3a9;
+  text-align: center;
+  padding-top: 3%;
+}
+i{
+  padding-top: 2rem;
+  font-size: 90px;
+  color: green;
+}
+.wrong{
+  padding-top: 2rem;
+  font-size: 90px;
+  color: rgb(184, 0, 0);
+
+}
+/* display results */
+.green{
+  background-color: rgb(126, 218, 126);
+
+}
+.red{
+    background-color: rgb(235, 85, 15);
+}
+/*_-------------------------------------------------------*/
+@media(max-width:450px){
+  .font-small-sm{
+    font-size: 1.2rem;
+  }
+}

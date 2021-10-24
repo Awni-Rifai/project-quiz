@@ -1,0 +1,46 @@
+/*------------------------------results-page------------------------*/
+body{
+    padding: 1rem;
+    background-color: #92D087;
+}
+
+.results-container{
+    margin:auto;
+    width: 80%;
+    margin-top: 5rem;
+    text-align: center;
+    font-size: 1.5rem;
+}
+.results-container .result{
+    font-weight: bold;
+    margin-right: 0.5rem;
+}
+.results-container h3{
+    font-weight: 400;
+}
+.show-results-btn{
+    width: 15%;
+    padding: 0.8rem 0;
+    border-radius: 1rem;
+    border: none;
+    
+}
+.show-results-btn:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+}
+@media (max-width:850px){
+    .show-results-btn{
+        width: 30%;
+    }
+}
+@media (max-width:400px){
+    .show-results-btn{
+        width: 50%;
+    }
+}
+@media(max-width:768px){
+    .results-container{
+        margin-top: 5rem;
+    }
+}
