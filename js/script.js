@@ -14,6 +14,8 @@ const userAnswersArr = [];
 const correctAnswersArr = [];
 let wrongAnswers = 0;
 let correctAnswers = 0;
+let idInterval;
+
 
 /*Views Logic*/
 
@@ -150,10 +152,10 @@ const generateExamBrief = (quizName) => {
         <br />
         Wish you the best of luck
       </h4>
-      <button type="button" class="btn btn-primary start-btn ${quizName} w-50">
+      <button type="button" class="btn btn-primary text-center p-2 px-2 start-btn ${quizName} w-75">
         Start ${quizName} quiz
       </button>
-      <button type="button" class="btn btn-primary back-btn mt-4 w-50">
+      <button type="button" class="btn btn-primary text-center back-btn p-2 px-5 mt-4 w-75">
         Back
       </button>
       
@@ -188,9 +190,10 @@ const generateQuestion = function (question) {
   const markup = ` 
     <div class="question d-flex">
       <h2 class="question">${question.question}  </h2>
-      <div class="timer">30</div>
+      
       <h4 class="question-count">${counter}/10</h4>
     </div>
+    <div class="timer">30</div>
     <div class="answers-section">
       <div class="form-check">
         <input class="form-check-input" type="radio" name="flexRadioDefault" data-answer="a" id="answer-1">
@@ -223,11 +226,11 @@ const generateQuestion = function (question) {
   container.insertAdjacentHTML("afterbegin", markup);
 };
 generateResultsPage = (correctAnswers) => {
-  //arr [[correct answers from local storage],[user's answer length:10],correct answers(number),wrong answers(number)]
-
-  container.innerHTML = "";
-
+  const body=document.querySelector('body');
+  container.style.opacity="0.2"
+  
   const markup = `<section class ="grade-section ">
+  
   <div class = "grade ">
     <h2>Your result is : ${correctAnswers}/10 </h2>
     
@@ -239,7 +242,7 @@ generateResultsPage = (correctAnswers) => {
                }
            </h2>
      <!-- <i class="fas fa-times wrong "></i>-->
-           <i class="fas ${
+           <i class="fas  text-dark ${
              correctAnswers > 5 ? "fa-check" : "fa-times wrong"
            }"></i>
       <h2>Your have ${correctAnswers} correct answer </h2>
@@ -248,22 +251,28 @@ generateResultsPage = (correctAnswers) => {
            Your have ${10 - correctAnswers} wrong answers
        </h2>
   </div>
-  <button class="show-results-btn">show results</button>
+  <button class="show-results-btn btn btn-outline-dark text-white fw-bold">show results</button>
 
 
 </section>`;
 
-  container.insertAdjacentHTML("afterbegin", markup);
+  body.insertAdjacentHTML("afterbegin", markup);
+  const gradeSection=document.querySelector('.grade-section');
 
   if (correctAnswers >= 5) {
-    container.style.background = "green";
+    gradeSection.style.background = "green";
   } else {
-    container.style.background = "red";
+    gradeSection.style.background = "red";
   }
 };
 generateDisplayResultsPage = () => {
   container.style.display = "flex";
   container.innerHTML = "";
+  container.style.opacity="1";
+  const gradeSection=document.querySelector('.grade-section');
+  gradeSection.style.display="none";
+
+
   container.style.background =
     "linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%)";
   const markup = `<div class="container">
@@ -280,7 +289,7 @@ const generateQuestionResults = () => {
   /* questionObject={question1:{}}*/
   const questionContainer = document.querySelector(".container div");
   for (let i = 1; i < 11; i++) {
-    const markup = `<div class=" card w-75 p-5 my-3 shadow">
+    const markup = `<div class=" card card-result w-75 p-5 my-3 shadow">
     <h2 class="mb-5 font-small-sm h2--${i}">Q${i} ${
       questionsObject[`question${i}`].question
     }</h2>
@@ -456,37 +465,44 @@ const loginValidation = (input) => {
 /*---------------------------------------------------------------------------------*/
 const setTimer = () => {
   const timer = document.querySelector(".timer");
-  let timeCounter = 30;
-  if (!timer) return;
+  clearInterval(idInterval);
+  let timeCounter=30;
+ 
+  
+  
 
-  setInterval(() => {
+   idInterval=setInterval(() => {
+    console.log(timeCounter);
     if (timeCounter === -1) {
+      //clearInterval(idInterval) 
       fetchQuestion(fetchedQuiz);
+      
+      
       //here when the timer reaches zero we need to fetch another question
       //here if the fetchedquestion didn't work then we will know that we are in the last question
      
     }
     //after we show the results we should return
-    if(counter===12)return;
-    if(timeCounter===-1 && counter===11){
-      if (fetchedQuiz === "HTML") {
-        compareAnswers("js/html-question.json");
-        counter++
-        return;
+    if(counter===11)return;
+    // if(timeCounter===-1 && counter===11){
+    //   if (fetchedQuiz === "HTML") {
+    //     compareAnswers("js/html-question.json");
+    //     counter++
+    //     return;
         
-      }
-      if (fetchedQuiz === "JS") {
-        compareAnswers("js/jsExam.json");
-        counter++
-        return;
+    //   }
+    //   if (fetchedQuiz === "JS") {
+    //     compareAnswers("js/jsExam.json");
+    //     counter++
+    //     return;
         
-      }
-      if (fetchedQuiz === "CSS"){
-        compareAnswers("js/question-css.json");
-        counter++;
-        return;
-      }
-    }
+    //   }
+    //   if (fetchedQuiz === "CSS"){
+    //     compareAnswers("js/question-css.json");
+    //     counter++;
+    //     return;
+    //   }
+    // }
     timer.textContent = `${timeCounter}`;
     timeCounter--;
   }, 1000);
@@ -517,8 +533,10 @@ const fetchQuestion = function (examName) {
      
 
       //nextBtn.style.display="inline-block";
+     setTimer();
       counter++;
-      setTimer();
+      
+      
     });
 };
 const compareAnswers = function (url) {

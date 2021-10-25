@@ -12,7 +12,8 @@
     padding: 20px;
     border-radius: 6px;
     
-  }
+  } 
+  
   .main-section{
     background-color: #8BC6EC;
     background: linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%);
@@ -25,12 +26,12 @@
   }
 
   /* Login  */
-  .login-section{
+   .login-section{
     width: 500px;
     background-color: rgb(255 255 255 /35%);
     padding: 20px;
     border-radius: 6px;
-  }
+  } 
 
   /* Cards */
   
@@ -131,6 +132,16 @@
 .container-brief h4 strong{
   color: red;
 }
+@media (max-width:450px) {
+  .breif-section{
+    width: 90%;
+    
+  }
+  .container-brief h4{
+    font-size: 1rem;
+  }
+  
+}
 /*-----------------------------Questions------------------------------*/
 .questions-section {
   background-color: rgb(255 255 255 /35%);
@@ -139,14 +150,30 @@
   border-radius: 6px;
 }
 .timer{
-  width: 10%;
+  width: 12%;
   border: rgba(0,0,0,0.2) 2px solid;
   text-align: center;
-  background-color: rgba(50,50,50,0.1);
-  padding: 0.4rem 1.4rem;
   border-radius: 0.2rem;
   box-shadow: 2px 2px 2px rgba(50,50,50,0.8);
-  margin:2rem 2rem;
+  
+  background-color: rgba(50,50,50,0);
+  padding: 0.6rem 1rem;
+  border-radius: 1.6rem;
+  box-shadow: 2px 2px 2px rgba(50,50,50,0.8);
+  border: 2px solid white;
+  
+  margin-left: 89%;
+}
+@media(max-width:450px){
+  .timer{
+    width: 12%;
+    padding-right: 0.6rem;
+    padding-left: 0.6rem;
+    padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
+    margin-left: 85%;
+    
+  }
 }
 .unanswered-question{
   font-size: 1.2rem;
@@ -177,16 +204,21 @@
 /* body{
   padding: 1rem;
   background-color: #92D087;
-} */
 
-.grade {
-  width:40%;
-  height: 50vh;
-  margin: 7rem auto;
-  background-color: #d9e9f3a9;
-  text-align: center;
-  padding-top: 3%;
+} */
+.grade-section{
+  padding: 4rem;
+  background-color: rgba(255,255,255,1);
+  box-shadow: 1px 1px 1px 2px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  z-index: 5;
+  border-radius: 4rem;
 }
+.grade
+
 i{
   padding-top: 2rem;
   font-size: 90px;
@@ -211,4 +243,51 @@ i{
   .font-small-sm{
     font-size: 1.2rem;
   }
+}
+/*------------------------------------Results overlay-----------------------------*/
+
+
+.grade-section {
+  
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  text-align: center;
+  
+}
+.grade-section h2{
+  font-size: 1rem;
+}
+
+
+
+i {
+  
+  font-size: 90px;
+  color: green;
+}
+
+.wrong {
+  font-size: 90px;
+  color: rgb(184, 0, 0);
+}
+
+/* display results */
+.green {
+  background-color: rgb(126, 218, 126);
+
+}
+
+.red {
+    background-color: rgb(235, 85, 15);
+}
+/*------------------------------------------------------*/
+@media(max-width:450px){
+  .grade-section{
+    width:90%
+  }
+}
+/*-----------------------------------*/
+.card-result:hover{
+  transform: scale(1);
 }
