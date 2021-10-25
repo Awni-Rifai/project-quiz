@@ -50,82 +50,50 @@ const genrateCardsPage = (name) => {
   //here the parent element that we append is card section
   //the name should be passed to the geneerate cardsPage
   container.innerHTML = "";
+  
 
-  const markup = ` <div>
-    <div>
-     <img src="" alt="logo">
+  const markup = `
+  
+  <div class="container">
+  
+  <div class="intro-text py-5">
+    <h3 class="welcome-name text-center mb-4 fw-bold">Welcome <span class="name">${name}</span>, Are You Ready?</h3>
+    <p class="text-center mb-5">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit, rem eum libero quasi voluptatum commodi sapiente, culpa aliquam doloribus adipisci vitae, ad ratione autem perspiciatis sequi? Vel, harum illum in qui delectus tempora nesciunt suscipit libero voluptas aspernatur pariatur, voluptatibus at cupiditate nisi animi ducimus dolore! Ad iste excepturi dolorem.
+    </p>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card mb-3 text-center" style="width: 20rem;">
+        <img src="./images/html5.png" class="card-img-top w-50 h-50 m-auto pt-4" alt="HTML Quiz">
+        <div class="card-body">
+          <h4 class="card-title">HTML Quiz</h4>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn HTML html-btn-logo d-block w-100 m-auto">Start Quiz</a>
+        </div>
+      </div>
     </div>
-    <div class = "welcome-name"> Welcome ${name}</div>
-    <div class="container mt-5 mb-3">
-     <div class="row">
-         <div class="col-md-4">
-             <div class="card card-HTML p-3 mb-2">
-                 <div class="d-flex justify-content-between">
-                     <div class="d-flex flex-row align-items-center">
-                         <div class="icon"> <i class="bx bxl-mailchimp"></i> </div>
-                         <div class="ms-2 c-details">
-                             <h6 class="mb-0">HTML</h6> <span>1 days ago</span>
-                         </div>
-                     </div>
-                     <div class="badge"> <span>QUIZ</span> </div>
-                 </div>
-                 <div class="mt-5">
-                     <h3 class="heading">Standard Markup<br> La nguage</h3>
-                     <div class="mt-5">
-                         <div class="progress">
-                             <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                         </div>
-                         <div class="mt-3"> <span class="text1">32 attend <span class="text2"></span></span> </div>
-                     </div>
-                 </div>
-             </div>
-         </div>
-         <div class="col-md-4">
-             <div class="card card-CSS p-3 mb-2">
-                 <div class="d-flex justify-content-between">
-                     <div class="d-flex flex-row align-items-center">
-                         <div class="icon"> <i class="bx bxl-dribbble"></i> </div>
-                         <div class="ms-2 c-details">
-                             <h6 class="mb-0">CSS</h6> <span>4 days ago</span>
-                         </div>
-                     </div>
-                     <div class="badge"> <span>Quiz</span> </div>
-                 </div>
-                 <div class="mt-5">
-                     <h3 class="heading">Cascading Style <br>Sheets</h3>
-                     <div class="mt-5">
-                         <div class="progress">
-                             <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                         </div>
-                         <div class="mt-3"> <span class="text1">42 attend <span class="text2"></span></span> </div>
-                     </div>
-                 </div>
-             </div>
-         </div>
-         <div class="col-md-4">
-             <div class="card card-JS p-3 mb-2">
-                 <div class="d-flex justify-content-between">
-                     <div class="d-flex flex-row align-items-center">
-                         <div class="icon"> <i class="bx bxl-reddit"></i> </div>
-                         <div class="ms-2 c-details">
-                             <h6 class="mb-0">JS</h6> <span>5 days ago</span>
-                         </div>
-                     </div>
-                     <div class="badge"> <span>Quiz</span> </div>
-                 </div>
-                 <div class="mt-5">
-                     <h3 class="heading">Java Script <br>JS</h3>
-                     <div class="mt-5">
-                         <div class="progress">
-                             <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                         </div>
-                         <div class="mt-3"> <span class="text1">52 Applied <span class="text2"></span></span> </div>
-                     </div>
-                 </div>
-             </div>
-         </div>
-     </div>
- </div>
+    <div class="col-md-4">
+      <div class="card mb-3 text-center" style="width: 20rem;">
+        <img src="./images/css3-logo.png" class="card-img-top w-50 h-50 m-auto pt-4" alt="HTML Quiz">
+        <div class="card-body">
+          <h4 class="card-title">CSS Quiz</h4>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn css-btn-logo CSS d-block w-100 m-auto">Start Quiz</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card mb-3 text-center" style="width: 20rem;">
+        <img src="./images/js-logo.png" class="card-img-top w-50 h-50 m-auto pt-4" alt="HTML Quiz">
+        <div class="card-body">
+          <h4 class="card-title">JavaScript Quiz</h4>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn js-btn-logo JS d-block w-100 m-auto">Start Quiz</a>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>`;
   container.insertAdjacentHTML("afterbegin", markup);
 };
@@ -152,10 +120,10 @@ const generateExamBrief = (quizName) => {
         <br />
         Wish you the best of luck
       </h4>
-      <button type="button" class="btn btn-primary text-center p-2 px-2 start-btn ${quizName} w-75">
+      <button type="button" class="btn btn-primary text-center p-2 px-2 start-btn ${quizName} ">
         Start ${quizName} quiz
       </button>
-      <button type="button" class="btn btn-primary text-center back-btn p-2 px-5 mt-4 w-75">
+      <button type="button" class="btn btn-primary text-center back-btn p-2 px-5 mt-4 ">
         Back
       </button>
       
@@ -169,15 +137,23 @@ const generateExamBrief = (quizName) => {
 /*---------------------------Generate exam-----------------------*/
 genrateExamPage = () => {
   //this function will only generate the exam page skeleton not the exam questions
+  const navBar=document.querySelector('.navbar');
+  navBar.remove();
   container.innerHTML = "";
+  container.style.minHeight="100vh"
   const markup = `<section class="questions-section">
+  <a href="main Page/index.html" class=" d-block h6 ms-auto home-btn"><i class="fas fa-home"></i></a>
     <div class="container">
       <h2 class="section-title">Questions</h2>
       <div class="row">
           
       </div>
-      <input class="btn btn-primary w-25 ms-auto next-btn"  type="button" value="next">
+      
     </div>
+    <div class="d-flex align-items-center justify-content-between">
+        
+        <input class="btn d-block btn-primary w-25 ms-auto next-btn"  type="button" value="next">
+      </div>
   </section>`;
   container.insertAdjacentHTML("afterbegin", markup);
 };
@@ -227,7 +203,8 @@ const generateQuestion = function (question) {
 };
 generateResultsPage = (correctAnswers) => {
   const body=document.querySelector('body');
-  container.style.opacity="0.2"
+  container.style.opacity="0.2";
+  
   
   const markup = `<section class ="grade-section ">
   
@@ -236,14 +213,14 @@ generateResultsPage = (correctAnswers) => {
     
           <h2>
                ${
-                 correctAnswers > 5
+                 correctAnswers >= 5
                    ? "you passed the exam"
                    : "you failed the exam"
                }
            </h2>
      <!-- <i class="fas fa-times wrong "></i>-->
            <i class="fas  text-dark ${
-             correctAnswers > 5 ? "fa-check" : "fa-times wrong"
+             correctAnswers >=5 ? "fa-check" : "fa-times wrong"
            }"></i>
       <h2>Your have ${correctAnswers} correct answer </h2>
 
@@ -256,7 +233,7 @@ generateResultsPage = (correctAnswers) => {
 
 </section>`;
 
-  body.insertAdjacentHTML("afterbegin", markup);
+  body.insertAdjacentHTML("beforeend", markup);
   const gradeSection=document.querySelector('.grade-section');
 
   if (correctAnswers >= 5) {
@@ -266,21 +243,23 @@ generateResultsPage = (correctAnswers) => {
   }
 };
 generateDisplayResultsPage = () => {
-  container.style.display = "flex";
+  
+  
   container.innerHTML = "";
   container.style.opacity="1";
   const gradeSection=document.querySelector('.grade-section');
-  gradeSection.style.display="none";
+   gradeSection.style.display="none";
 
 
   container.style.background =
     "linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%)";
   const markup = `<div class="container">
-  <div class="d-flex justify-content-center align-items-center flex-wrap p-lg-5">
+  <div class="d-lg-flex justify-content-center align-items-center flex-wrap  p-lg-5">
+  
       
   </div>
 </div>`;
-  container.insertAdjacentHTML("afterbegin", markup);
+  container.insertAdjacentHTML("beforeend", markup);
 };
 
 const generateQuestionResults = () => {
@@ -289,7 +268,9 @@ const generateQuestionResults = () => {
   /* questionObject={question1:{}}*/
   const questionContainer = document.querySelector(".container div");
   for (let i = 1; i < 11; i++) {
-    const markup = `<div class=" card card-result w-75 p-5 my-3 shadow">
+    const markup = `
+    <a href="main Page/index.html" class="btn-logout">LOG OUT</a>
+    <div class=" card card-result mx-3  p-5 my-3 shadow min-height-50 mt-5">
     <h2 class="mb-5 font-small-sm h2--${i}">Q${i} ${
       questionsObject[`question${i}`].question
     }</h2>
@@ -313,7 +294,8 @@ const generateQuestionResults = () => {
         '<span class="unanswered-question">unanswered question</span>'
       );
     }
-    //loop throught the lis in order to find the user's answer
+    
+    //loop throught the list in order to find the user's answer
 
     answers.forEach((answer) => {
       //if the li contains a class that is the same as the user answer
@@ -337,6 +319,7 @@ const generateQuestionResults = () => {
 /*------------------------------------------------------------------------------------------*/
 /*Validation*/
 /*----------------------------------SignUp Validation-----------------------------------------*/
+
 //name Input
 const firstName = document.querySelector(".firstNameInput");
 const PFirstName = document.querySelector(".firstNameP");
@@ -463,6 +446,7 @@ const loginValidation = (input) => {
   }
 };
 /*---------------------------------------------------------------------------------*/
+/*Timer Function*/
 const setTimer = () => {
   const timer = document.querySelector(".timer");
   clearInterval(idInterval);
@@ -516,6 +500,7 @@ const fetchQuestion = function (examName) {
   if (examName === "HTML") url = "js/html-question.json";
   if (examName === "JS") url = "js/jsExam.json";
   if (examName === "CSS") url = "js/question-css.json";
+  //here we fetch one question at a time
   fetch(url)
     .then((res) => res.json())
     .then((questions) => {
@@ -569,21 +554,28 @@ const compareAnswers = function (url) {
     });
 };
 //here we put a listener to the whole document and inside of it we specify each button
+
 document.addEventListener("click", (e) => {
   // button
   /*we put these variables in inside the listner in order to be redifined when the html is generated*/
   /*if we put them outside the listener they will be defined once and if they are not exicited like log-in btn it will be null*/
 
   const loginBtn = document.querySelector(".login-btn");
-  const htmlCard = document.querySelector(".card-HTML");
-  const cssCard = document.querySelector(".card-CSS");
-  const jsCard = document.querySelector(".card-JS");
+ 
   const backBtn = document.querySelector(".back-btn");
   const loginEmail = document.querySelector(".login-email");
   const loginPassword = document.querySelector(".login-password");
   const startQuizBtn = document.querySelector(".start-btn");
   const nextBtn = document.querySelector(".next-btn");
   const showResultsBtn = document.querySelector(".show-results-btn");
+  const htmlBtn=document.querySelector('.HTML'); 
+  const cssBtn=document.querySelector('.CSS'); 
+  const jsBtn=document.querySelector('.JS'); 
+  //log in btn in signup page
+  const loginBtnSignUp=document.querySelector('.log-in-btn');
+  if(e.target===loginBtnSignUp){
+    generateLoginPage();
+  }
 
   if (loginEmail && loginEmail.value) {
     //here if we have a value for the login Email and also if the element is excited also since it will
@@ -609,23 +601,24 @@ document.addEventListener("click", (e) => {
   /*--------------------------------------------------------*/
   /*Card Listners*/
 
-  if (e.target === htmlCard) {
+  if (e.target === htmlBtn) {
     fetchedQuiz = "HTML";
     generateExamBrief(fetchedQuiz);
   }
-  if (e.target === cssCard) {
+  if (e.target === cssBtn) {
     fetchedQuiz = "CSS";
     generateExamBrief(fetchedQuiz);
   }
-  if (e.target === jsCard) {
+  if (e.target === jsBtn) {
     fetchedQuiz = "JS";
     generateExamBrief("JS");
   }
   if (e.target === backBtn) {
-    genrateCardsPage(name);
-  }
+     genrateCardsPage(name);
+   }
   /*------------------------------------------------------------*/
   //check if the button contains a class either HTML CSS or JS
+  /*Brief Section listners*/
   if (e.target === startQuizBtn) {
     if (startQuizBtn.classList.contains("HTML")) {
       genrateExamPage();

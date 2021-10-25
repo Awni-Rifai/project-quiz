@@ -1,0 +1,60 @@
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Start Nav */
+.nav-item {
+  padding: 0 20px;
+}
+
+/* Start Cards */
+.main-section .welcome-name .name {
+  
+  color: #dd512a;
+}
+
+.card {
+  margin: auto;
+  transition: 1s;
+}
+
+@media (max-width: 767px) {
+  .cards-section .intro-text {
+    padding-top: 30px;
+  }
+
+  .cards-section .row .card {
+    margin-bottom: 20px;
+  }
+}
+
+.card:hover {
+  transform: scale(1.1);
+}
+
+.cards-section {
+  background-color: #EEE;
+  min-height: 100vh;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.html-btn-logo {
+  background-color: #dd512a;
+  font-weight: bold;
+  color: #FFF;
+}
+
+.css-btn-logo {
+  background-color: #2465f1;
+  color: #FFF;
+  font-weight: bold;
+}
+
+.js-btn-logo {
+  background-color: #f7e018;
+  font-weight: bold;
+}
+/* End Cards */

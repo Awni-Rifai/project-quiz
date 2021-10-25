@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="main-section">
+    <section class="signup-section">
+      <div class="container">
+        <form class="signup-form">
+          <h2>Create an account</h2>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">First Name</label>
+            <input type="text" class="form-control firstNameInput" id="exampleFirstName" aria-describedby="emailHelp"
+              placeholder="Enter Your Name" />
+              <p class = "firstNameP"></p>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email address</label>
+            <input type="email" class="form-control emailInput" id="exampleInputEmail1" aria-describedby="emailHelp"
+              placeholder="example@domain.com" />
+              <p class ="emailP"></p>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input type="password" class="form-control passwordInput" id="exampleInputPassword1" placeholder="password" />
+             <p class = "passwordP"></p>
+          </div>
+        </form>
+        <button type="submit" class="signup-btn btn btn-primary w-25 " onclick="signup()">Signup</button>
+        <button type="btn" class="signup-btn btn btn-primary w-25 " >Login</button>
+      </div>
+    </section>
+  </div>
+  
+  <script>
+//---------------------------------------signup validation Done By Leen --------------------------------//
+
+    //name Input 
+    const firstName = document.querySelector(".firstNameInput");
+    const PFirstName =document.querySelector(".firstNameP")
+    //email input 
+    const emailInput = document.querySelector(".emailInput");
+    const emailP = document.querySelector(".emailP");
+    const emailPattern =  /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    //password 
+    const passwordInput = document.querySelector(".passwordInput");
+    const passwordP = document.querySelector(".passwordP")
+    const  passwordPattern = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
+    //button
+    const submitbtn = document.querySelector(".signup-btn ");
+    function signup(){
+      //name check 
+      if(firstName.value===""){
+      PFirstName.innerHTML="The First Name field is required."
+      PFirstName.style.color="red"}
+      else{
+        PFirstName.innerHTML="";
+
+      }
+    
+    //email cheack and validation 
+      if(emailInput.value===""){
+        emailP.innerHTML="The email field is required."
+        emailP.style.color="red"
+      }
+      if(!emailInput.value.match(emailPattern)){
+        emailP.innerHTML="Please Enter a valid email"
+        emailP.style.color="red"}
+        else{
+          emailP.innerHTML="";
+       }
+    //password cheak and validation 
+    if(passwordInput.value===""){
+      passwordP.innerHTML="The password field is required"
+      passwordP.style.color="red"
+      }
+      if(!passwordInput.value.match(passwordPattern)){
+        passwordP.innerHTML="password must be Az@#123"
+          passwordP.style.color="red"}
+        else{
+          passwordP.innerHTML=" ";
+        }
+        
+        const validation={
+          username : firstName.value,
+          usermail : emailInput.value,
+          userpass: passwordInput.value,
+    }
+      console.log(validation);
+      localStorage.setItem(emailInput.value,JSON.stringify(validation));
+  }
+  //----------------------------------finsh sign up -----------------------------------------------------// 
+  </script>
+
+
+
+</body>
+
+</html>
