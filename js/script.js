@@ -10,8 +10,8 @@ let name; //the name that should be passed to the function generate cards we def
 //we should hide the card sections since it has 100vh style and it will push the content down
 //these are global variables and they should be reseted when we finish the exam
 let counter = 1;
-const userAnswersArr = [];
-const correctAnswersArr = [];
+let userAnswersArr = [];
+let correctAnswersArr = [];
 let wrongAnswers = 0;
 let correctAnswers = 0;
 let idInterval;
@@ -151,8 +151,9 @@ genrateExamPage = () => {
       
     </div>
     <div class="d-flex align-items-center justify-content-between">
+    <input class="btn  btn-primary w-25  back-btn hide"  type="button" value="back">
+        <input class="btn d-block btn-primary ms-auto w-25  next-btn"  type="button" value="next">
         
-        <input class="btn d-block btn-primary w-25 ms-auto next-btn"  type="button" value="next">
       </div>
   </section>`;
   container.insertAdjacentHTML("afterbegin", markup);
@@ -161,6 +162,9 @@ genrateExamPage = () => {
 const generateQuestion = function (question) {
   const container = document.querySelector(".questions-section .row");
   container.innerHTML = "";
+  const backBtn=document.querySelector('.back-btn');
+  if(counter===2)backBtn.style.display='inline-block';
+  
   //edit the styles
 
   const markup = ` 
@@ -322,6 +326,7 @@ const generateQuestionResults = () => {
 
 //name Input
 const firstName = document.querySelector(".firstNameInput");
+const lastName=document.querySelector('.LastNameInput');
 const PFirstName = document.querySelector(".firstNameP");
 //email input
 const emailInput = document.querySelector(".emailInput");
@@ -374,10 +379,11 @@ function signup() {
   }
 
   const validation = {
-    username: firstName.value,
+    username: firstName.value +" " +lastName.value,
     usermail: emailInput.value,
     userpass: passwordInput.value,
   };
+  console.log(validation);
 
   if (emailCheck && passCheck && nameCheck) {
     localStorage.setItem(emailInput.value, JSON.stringify(validation));
@@ -466,8 +472,11 @@ const setTimer = () => {
       //here if the fetchedquestion didn't work then we will know that we are in the last question
      
     }
+    if(counter===11)
+    if(counter===12)return;
+
     //after we show the results we should return
-    if(counter===11)return;
+    
     // if(timeCounter===-1 && counter===11){
     //   if (fetchedQuiz === "HTML") {
     //     compareAnswers("js/html-question.json");
@@ -504,6 +513,7 @@ const fetchQuestion = function (examName) {
   fetch(url)
     .then((res) => res.json())
     .then((questions) => {
+      console.log(questions);
       //questions is an object inside of it obj={question1:a:'' b:'' c:'' d:'' correct:''}
       //if we reach question 10 then return we don't need to fetch anymore
       //question is the object inside the main object
@@ -519,12 +529,15 @@ const fetchQuestion = function (examName) {
 
       //nextBtn.style.display="inline-block";
      setTimer();
+     //save the counter in session storage
+     sessionStorage.setItem('counter',counter.toString());
       counter++;
       
       
     });
 };
 const compareAnswers = function (url) {
+  clearInterval(idInterval);
   fetch(url)
     .then((res) => res.json())
     .then((questions) => {
@@ -603,14 +616,17 @@ document.addEventListener("click", (e) => {
 
   if (e.target === htmlBtn) {
     fetchedQuiz = "HTML";
+    sessionStorage.setItem("fetchedQuiz",fetchedQuiz)
     generateExamBrief(fetchedQuiz);
   }
   if (e.target === cssBtn) {
     fetchedQuiz = "CSS";
+    sessionStorage.setItem("fetchedQuiz",fetchedQuiz)
     generateExamBrief(fetchedQuiz);
   }
   if (e.target === jsBtn) {
     fetchedQuiz = "JS";
+    sessionStorage.setItem("fetchedQuiz",fetchedQuiz)
     generateExamBrief("JS");
   }
   if (e.target === backBtn) {
@@ -662,11 +678,35 @@ document.addEventListener("click", (e) => {
         fetchQuestion(fetchedQuiz);
       }
       //else throw new error
+
     });
+    
   }
   /*-----------------------------------*/
   if (e.target === showResultsBtn) {
     generateDisplayResultsPage();
     generateQuestionResults();
+    //now we will remove the array
+    userAnswersArr=[];
+    correctAnswersArr=[];
+    counter=1;
+    sessionStorage.removeItem('counter')
+    //we should put them in clear function;
+  
+  }
+  const homeBtn= document.querySelector('.fa-home');
+  if(e.target===homeBtn){
+    sessionStorage.removeItem('counter');
+    sessionStorage.removeItem('fetchedQuiz');
   }
 });
+window.addEventListener('load',function(e){
+  if(!sessionStorage.getItem('counter'))return;
+ 
+let counterRetrieved=Number(sessionStorage.getItem('counter'));
+counter=counterRetrieved;
+fetchedQuiz=sessionStorage.getItem('fetchedQuiz');
+genrateExamPage();
+fetchQuestion(fetchedQuiz);
+
+})

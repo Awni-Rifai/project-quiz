@@ -22,6 +22,7 @@
   
 }
 .navbar-background{
+  /*Nav bar from bootstrap*/
   background: var(--gradient-primary) !important
 
   ;
