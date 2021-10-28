@@ -462,7 +462,19 @@ const setTimer = () => {
   
 
    idInterval=setInterval(() => {
-    console.log(timeCounter);
+    
+    if(counter===11 && timeCounter===-1){
+     
+      if (fetchedQuiz === "HTML") {
+        compareAnswers("js/html-question.json");
+      }
+      if (fetchedQuiz === "JS") {
+        compareAnswers("js/jsExam.json");
+      }
+      if (fetchedQuiz === "CSS") compareAnswers("js/question-css.json");
+    }
+
+    
     if (timeCounter === -1) {
       //clearInterval(idInterval) 
       fetchQuestion(fetchedQuiz);
@@ -472,7 +484,7 @@ const setTimer = () => {
       //here if the fetchedquestion didn't work then we will know that we are in the last question
      
     }
-    if(counter===11)
+    
     if(counter===12)return;
 
     //after we show the results we should return
