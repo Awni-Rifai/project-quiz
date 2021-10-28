@@ -355,3 +355,11 @@ i {
 .hide{
   display: none;
 }
+@media(max-width:1000px){
+  .navbar-background{
+    /*Nav bar from bootstrap*/
+   
+    height: fit-content !important;
+   
+  }
+} 
