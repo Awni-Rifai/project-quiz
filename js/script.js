@@ -58,14 +58,11 @@ const genrateCardsPage = (name) => {
   
   <div class="intro-text py-5">
     <h3 class="welcome-name text-center mb-4 fw-bold">Welcome <span class="name">${name}</span>, Are You Ready?</h3>
-    <p class="text-center mb-5">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit, rem eum libero quasi voluptatum commodi sapiente, culpa aliquam doloribus adipisci vitae, ad ratione autem perspiciatis sequi? Vel, harum illum in qui delectus tempora nesciunt suscipit libero voluptas aspernatur pariatur, voluptatibus at cupiditate nisi animi ducimus dolore! Ad iste excepturi dolorem.
-    </p>
   </div>
   <div class="row">
     <div class="col-md-4">
       <div class="card mb-3 text-center" style="width: 20rem;">
-        <img src="./images/html5.png" class="card-img-top w-50 h-50 m-auto pt-4" alt="HTML Quiz">
+        <img src="../images/html5.png" class="card-img-top w-50 h-50 m-auto pt-4" alt="HTML Quiz">
         <div class="card-body">
           <h4 class="card-title">HTML Quiz</h4>
           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -75,7 +72,7 @@ const genrateCardsPage = (name) => {
     </div>
     <div class="col-md-4">
       <div class="card mb-3 text-center" style="width: 20rem;">
-        <img src="./images/css3-logo.png" class="card-img-top w-50 h-50 m-auto pt-4" alt="HTML Quiz">
+        <img src="../images/css3-logo.png" class="card-img-top w-50 h-50 m-auto pt-4" alt="HTML Quiz">
         <div class="card-body">
           <h4 class="card-title">CSS Quiz</h4>
           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -85,7 +82,7 @@ const genrateCardsPage = (name) => {
     </div>
     <div class="col-md-4">
       <div class="card mb-3 text-center" style="width: 20rem;">
-        <img src="./images/js-logo.png" class="card-img-top w-50 h-50 m-auto pt-4" alt="HTML Quiz">
+        <img src="../images/js-logo.png" class="card-img-top w-50 h-50 m-auto pt-4" alt="HTML Quiz">
         <div class="card-body">
           <h4 class="card-title">JavaScript Quiz</h4>
           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -126,7 +123,6 @@ const generateExamBrief = (quizName) => {
       <button type="button" class="btn btn-primary text-center back-btn p-2 px-5 mt-4 ">
         Back
       </button>
-      
     </div>
   </div>
   
@@ -142,7 +138,7 @@ genrateExamPage = () => {
   container.innerHTML = "";
   container.style.minHeight="100vh"
   const markup = `<section class="questions-section">
-  <a href="main Page/index.html" class=" d-block h6 ms-auto home-btn"><i class="fas fa-home"></i></a>
+  <a href="../index.html" class=" d-block h6 ms-auto home-btn"><i class="fas fa-home"></i></a>
     <div class="container">
       <h2 class="section-title">Questions</h2>
       <div class="row">
@@ -151,7 +147,6 @@ genrateExamPage = () => {
       
     </div>
     <div class="d-flex align-items-center justify-content-between">
-    <input class="btn  btn-primary w-25  back-btn hide"  type="button" value="back">
         <input class="btn d-block btn-primary ms-auto w-25  next-btn"  type="button" value="next">
         
       </div>
@@ -162,8 +157,8 @@ genrateExamPage = () => {
 const generateQuestion = function (question) {
   const container = document.querySelector(".questions-section .row");
   container.innerHTML = "";
-  const backBtn=document.querySelector('.back-btn');
-  if(counter===2)backBtn.style.display='inline-block';
+  // const backBtn=document.querySelector('.back-btn');
+  // if(counter===2)backBtn.style.display='inline-block';
   
   //edit the styles
 
@@ -227,14 +222,11 @@ generateResultsPage = (correctAnswers) => {
              correctAnswers >=5 ? "fa-check" : "fa-times wrong"
            }"></i>
       <h2>Your have ${correctAnswers} correct answer </h2>
-
        <h2>
            Your have ${10 - correctAnswers} wrong answers
        </h2>
   </div>
   <button class="show-results-btn btn btn-outline-dark text-white fw-bold">show results</button>
-
-
 </section>`;
 
   body.insertAdjacentHTML("beforeend", markup);
@@ -273,7 +265,7 @@ const generateQuestionResults = () => {
   const questionContainer = document.querySelector(".container div");
   for (let i = 1; i < 11; i++) {
     const markup = `
-    <a href="main Page/index.html" class="btn-logout">LOG OUT</a>
+    <a href="../index.html" class="btn-logout">LOG OUT</a>
     <div class=" card card-result mx-3  p-5 my-3 shadow min-height-50 mt-5">
     <h2 class="mb-5 font-small-sm h2--${i}">Q${i} ${
       questionsObject[`question${i}`].question
@@ -466,12 +458,12 @@ const setTimer = () => {
     if(counter===11 && timeCounter===-1){
      
       if (fetchedQuiz === "HTML") {
-        compareAnswers("js/html-question.json");
+        compareAnswers("../js/html-question.json");
       }
       if (fetchedQuiz === "JS") {
-        compareAnswers("js/jsExam.json");
+        compareAnswers("../js/jsExam.json");
       }
-      if (fetchedQuiz === "CSS") compareAnswers("js/question-css.json");
+      if (fetchedQuiz === "CSS") compareAnswers("../js/question-css.json");
     }
 
     
@@ -518,9 +510,9 @@ const fetchQuestion = function (examName) {
   //this function takes the questions from json file
   if (counter > 10) return;
   let url = "";
-  if (examName === "HTML") url = "js/html-question.json";
-  if (examName === "JS") url = "js/jsExam.json";
-  if (examName === "CSS") url = "js/question-css.json";
+  if (examName === "HTML") url = "../js/html-question.json";
+  if (examName === "JS") url = "../js/jsExam.json";
+  if (examName === "CSS") url = "../js/question-css.json";
   //here we fetch one question at a time
   fetch(url)
     .then((res) => res.json())
@@ -671,12 +663,12 @@ document.addEventListener("click", (e) => {
     //inside the compare answers function we will genrate the resultsPage
     if (counter === 11) {
       if (fetchedQuiz === "HTML") {
-        compareAnswers("js/html-question.json");
+        compareAnswers("../js/html-question.json");
       }
       if (fetchedQuiz === "JS") {
-        compareAnswers("js/jsExam.json");
+        compareAnswers("../js/jsExam.json");
       }
-      if (fetchedQuiz === "CSS") compareAnswers("js/question-css.json");
+      if (fetchedQuiz === "CSS") compareAnswers("../js/question-css.json");
     }
     //loop through the 4 answers and check if one of them is checked
     //then store the checked one in session storage

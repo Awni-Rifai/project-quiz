@@ -22,7 +22,6 @@
   
 }
 .navbar-background{
-  /*Nav bar from bootstrap*/
   background: var(--gradient-primary) !important
 
   ;
@@ -38,6 +37,13 @@
   margin: 0;
   padding: 0;
   box-sizing: inherit;
+}
+
+.salameh{
+  background-color: red;
+  color: white !important;
+  padding: 10px !important;
+  border-radius : 5px !important;
 }
 
 html {
@@ -927,11 +933,16 @@ width: 80%;
 
   ;
 }
-@media(max-width:1000px){
+
+@media (max-width: 1000px) {
+  .btn--text{
+    margin: auto;
+  }
+
   .navbar-background{
-    /*Nav bar from bootstrap*/
-   
-    height: fit-content !important;
-   
+    background: var(--gradient-primary) !important
+  
+    ;
+    height: fit-content!important;
   }
 }
