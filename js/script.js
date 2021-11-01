@@ -318,7 +318,7 @@ const generateQuestionResults = () => {
 
 //name Input
 const firstName = document.querySelector(".firstNameInput");
-const lastName=document.querySelector('.LastNameInput');
+
 const PFirstName = document.querySelector(".firstNameP");
 //email input
 const emailInput = document.querySelector(".emailInput");
@@ -371,7 +371,7 @@ function signup() {
   }
 
   const validation = {
-    username: firstName.value +" " +lastName.value,
+    username: firstName.value,
     usermail: emailInput.value,
     userpass: passwordInput.value,
   };
